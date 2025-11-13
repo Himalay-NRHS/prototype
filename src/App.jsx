@@ -268,9 +268,19 @@ function App() {
   // Member Card Component
   const MemberCard = ({ member }) => {
     // Determine path based on whether it's a member (has year) or alumni (no year)
-    const imagePath = member.year 
-      ? `/components/members/${member.year}year/${member.photo}`
-      : `/components/alumni/${member.photo}`;
+    // Normalize photo path: accept either a full relative path (e.g. 'components/...')
+    // or just a filename (e.g. 'Name.jpeg'). Ensure it begins with a leading slash
+    // and encode URI to handle spaces.
+    let imagePath = '';
+    if (member && member.photo) {
+      const photoStr = (typeof member.photo === 'string' ? member.photo.trim() : '');
+      if (photoStr.includes('/')) {
+        imagePath = photoStr.startsWith('/') ? photoStr : `/${photoStr}`;
+      } else {
+        imagePath = member.year ? `/components/members/${member.year}year/${photoStr}` : `/components/alumni/${photoStr}`;
+      }
+      imagePath = encodeURI(imagePath);
+    }
     
     return (
       <div className="bg-[#BBDEFB] backdrop-blur-lg rounded-2xl overflow-hidden border-2 border-[#0000FF] hover:transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
@@ -301,7 +311,18 @@ function App() {
   // Alumni Card Component
   const AlumniCard = ({ member }) => {
     const [flipped, setFlipped] = useState(false);
-    const imagePath = `/components/alumni/${member.batch}/${member.photo}`;
+    // Normalize alumni image path similar to MemberCard. Accept full path or filename.
+    let imagePath = '';
+    if (member && member.photo) {
+      const photoStr = (typeof member.photo === 'string' ? member.photo.trim() : '');
+      if (photoStr.includes('/')) {
+        // If path already contains folder info, ensure leading slash
+        imagePath = photoStr.startsWith('/') ? photoStr : `/${photoStr}`;
+      } else {
+        imagePath = `/components/alumni/${member.batch}/${photoStr}`;
+      }
+      imagePath = encodeURI(imagePath);
+    }
     
     return (
       <div className="relative h-80 perspective-1000" onMouseEnter={() => setFlipped(true)} onMouseLeave={() => setFlipped(false)}>
