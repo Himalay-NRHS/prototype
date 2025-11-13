@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initialize Sigma Club Data</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        .success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+        .status-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        ul {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Initialize Sigma Club Website</h1>
+        <p class="subtitle">Set up your website with all existing photos</p>
+
+        <div class="info">
+            <strong>This will initialize:</strong>
+            <ul>
+                <li>✅ About page: 2 team photos</li>
+                <li>✅ 3rd Year: 4 members (Debarghya Pramanik, Dinesh H, Rohan Chargotra, Spandana BVS)</li>
+                <li>✅ 4th Year: 2 members (Suhas S P, Vismaya M B)</li>
+            </ul>
+        </div>
+
+        <button onclick="initializeData()">
+            🎯 Initialize Data
+        </button>
+        
+        <button onclick="viewData()" class="success">
+            👁️ View Current Data
+        </button>
+
+        <button onclick="goToWebsite()" class="success">
+            🏠 Go to Website
+        </button>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = isError ? 'status-error' : 'status-success';
+            status.style.display = 'block';
+        }
+
+        function initializeData() {
+            const defaultData = {
+                events: [],
+                memberPhotos: {
+                    '1st': [],
+                    '2nd': [],
+                    '3rd': [
+                        'Debarghya Pramanik.jpeg',
+                        'Dinesh H.jpeg',
+                        'Rohan Chargotra.jpeg',
+                        'Spandana BVS.jpeg'
+                    ],
+                    '4th': [
+                        'Suhas S P.jpeg',
+                        'Vismaya M B.jpeg'
+                    ]
+                },
+                alumni: [],
+                timeline: [],
+                magazines: [],
+                aboutImages: ['team.jpeg', 'team2.jpeg']
+            };
+
+            localStorage.setItem('sigma-club-data', JSON.stringify(defaultData));
+            showStatus('✅ Data initialized successfully! Redirecting to website...');
+            setTimeout(() => window.location.href = '/', 2000);
+        }
+
+        function viewData() {
+            const data = localStorage.getItem('sigma-club-data');
+            if (!data) {
+                alert('No data found. Click "Initialize Data" first.');
+                return;
+            }
+            console.clear();
+            console.log('=== SIGMA CLUB DATA ===');
+            console.log(JSON.parse(data));
+            showStatus('✅ Data logged to console! Press F12 to view.');
+        }
+
+        function goToWebsite() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

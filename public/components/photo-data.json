@@ -1,0 +1,53 @@
+{
+  "memberPhotos": {
+    "1st": [],
+    "2nd": [
+      "components/members/2ndyear/Mahesh Teli.jpeg",
+      "components/members/2ndyear/Sangameesh B.jpeg"
+    ],
+    "3rd": [
+      "components/members/3rdyear/Abhishek Hiremath.jpeg",
+      "components/members/3rdyear/Aditya Pattar.jpeg",
+      "components/members/3rdyear/Akash Madbal.jpeg",
+      "components/members/3rdyear/Arqam S A.jpeg",
+      "components/members/3rdyear/Chetankumar R S.jpeg",
+      "components/members/3rdyear/Darshan H M.jpeg",
+      "components/members/3rdyear/Debarghya Pramanik.jpeg",
+      "components/members/3rdyear/Dinesh H.jpeg",
+      "components/members/3rdyear/Ganashree R.jpeg",
+      "components/members/3rdyear/Girish .jpeg",
+      "components/members/3rdyear/Shravya GS.jpeg",
+      "components/members/3rdyear/Sneha D N.jpeg",
+      "components/members/3rdyear/Spandana BVS.jpeg"
+    ],
+    "4th": [
+      "components/members/4thyear/Akshita Katte.jpeg",
+      "components/members/4thyear/Shalmala G Nadig.jpeg",
+      "components/members/4thyear/Suhas S P.jpeg",
+      "components/members/4thyear/Vinayak B.jpeg",
+      "components/members/4thyear/Vismaya M B.jpeg"
+    ]
+  },
+  "alumniPhotos": [],
+  "aboutImages": [
+    "components/about/team.jpeg",
+    "components/about/team2.jpeg"
+  ],
+  "homeImages": [
+    "components/home/hjwjw.jpg"
+  ],
+  "magazinePDFs": [
+    "components/magazines/Browse Edition 2016.pdf",
+    "components/magazines/Browse Edition 2020.pdf",
+    "components/magazines/Browse Edition 2022.pdf",
+    "components/magazines/Browse Edition 2023.pdf",
+    "components/magazines/Browse Edition 2024.pdf",
+    "components/magazines/Browse Edition 2025.pdf",
+    "components/magazines/Winter Edition 2016.pdf",
+    "components/magazines/Winter Edition 2018.pdf",
+    "components/magazines/Winter Edition 2019.pdf",
+    "components/magazines/Winter Edition 2024.pdf",
+    "components/magazines/Winter Edition SIGMA -2022.pdf"
+  ],
+  "generatedAt": "2025-11-13T08:36:28.928Z"
+}
